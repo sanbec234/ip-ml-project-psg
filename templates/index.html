@@ -1,0 +1,145 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Flask File Uploads Tutorial</h1>
+
+    <form method='POST' enctype='multipart/form-data'>
+        {{form.hidden_tag()}}
+        {{form.file()}}
+        {{form.submit()}}
+    </form>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    
+  </style>
+  <title>Detect Poles - Polectors</title>
+  <link rel="icon" type="image1x-icon" href="favicon.png.ico">
+  <link href="./static/polectors.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div data-collapse="small" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav-bar w-nav">
+    <div class="nav-container w-container">
+      <div class="logo-div">
+        <a href="https://memberbase-template.webflow.io/" aria-current="page" class="nav-logo w-inline-block w--current"><img src="static/Pole Logo.png" width="150" height="100" alt="Memberbase Logo" class="logo"></a>
+      </div>
+      <nav role="navigation" class="nav-content w-nav-menu">
+        <div class="nav-menu">
+          <span>Features</span>
+        </div>
+      </nav>
+      <div class="menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"><img src="./static/62aee78456e4200f2eac4d49_Menu Icon.svg" loading="lazy" width="24" alt="" class="menu-icon"></div>
+    </div>
+    <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
+  </div>
+  <div class="page-wrapper">
+    <div class="section light-color-gradient">
+      <div class="container" style="opacity: 1;">
+        <div class="w-layout-grid hero-grid">
+          <div class="text-box _500px">
+            <h1 class="heading h1">Detect Poles using our Machine Learning Website.</h1>
+            <p class="paragraph large">Our model is the best when it comes to recognition.</p>
+            <div class="spacer _16"></div>
+            <div class="popup" onclick="openUploadPopup()">
+              <button class="button w-button" id="OpenImgUpload">Upload Image</button>
+              <input type="file" id="imgupload" style="display: none;">
+            </div>          
+          </div>
+          <img src="static/Pole Logo.png" loading="eager" width="337" id="w-node-_2c511369-eabb-a0ff-6024-6e8ecffbdf82-40ac4d19" alt="" class="hero-illustration">
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container" style="opacity: 1;">
+        <div class="section-top">
+          <h2 class="heading h3">Our Features</h2>
+        </div>
+        <div class="w-dyn-list">
+          <div role="list" class="large-3-grid w-dyn-items">
+            <div role="listitem" class="ebook-box w-dyn-item">
+                <h2 class="heading h3">Image recognition</h2>
+                <p class="paragraph small">We detect the poles with the best accuracy powered by powerful algorithms of Machine Learning!</p>
+              </a>
+            </div>
+            <div role="listitem" class="ebook-box w-dyn-item">
+                <h2 class="heading h3">Pole Height Detection</h2>
+                <p class="paragraph small">We also find the height of the poles!</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section black-gradient">
+      <div class="container w-container" style="opacity: 1;">
+        <div class="text-box _550px center-align">
+          <h2 class="heading h2">Get more great resources</h2>
+          <p class="paragraph large">Get the latest design resources! Straight to your inbox.</p>
+          <div class="spacer _16"></div>
+          <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul>
+              {% for message in messages %}
+                <li>{{  message  }}</li>
+              {% endfor %}
+              </ul>
+              {% endif %}
+            {% endwith %}
+          </p>
+          <div class="submit-form center-align w-form">
+            
+            <form method='POST' enctype='multipart/form-data'>
+              {{form.hidden_tag()}}
+              {{form.file()}}
+              {{form.submit()}}
+            </form> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="uploadPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc;">
+    <h2>Upload Image</h2>
+    <input type="file" id="imageUploadInputPopup" accept="image/*">
+    <button onclick="uploadImage()">Upload</button>
+    <button onclick="closeUploadPopup()">Cancel</button>
+  </div>
+
+  <script>
+    // Function to open the upload popup
+    function openUploadPopup() {
+      document.getElementById("uploadPopup").style.display = "block";
+    }
+
+    // Function to close the upload popup
+    function closeUploadPopup() {
+      document.getElementById("uploadPopup").style.display = "none";
+    }
+
+    // Function to handle image upload
+    function uploadImage() {
+      var fileInput = document.getElementById("imageUploadInputPopup");
+      var file = fileInput.files[0];
+      // Add your code to handle the image upload
+      console.log("Uploaded image:", file);
+      // Close the popup after upload
+      closeUploadPopup();
+    }
+  </script>
+</body>
+</html>
